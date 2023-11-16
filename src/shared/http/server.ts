@@ -10,6 +10,7 @@ server.use(express.static(path.join(__dirname, "../public")));
 server.use(express.urlencoded({ extended: true }));
 
 server.use('/api', routes);
+
 server.use((req: Request, res: Response) => {
     res.json({ error: "Endpoint não encontrado" });
 });

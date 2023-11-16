@@ -1,9 +1,16 @@
 import { Request, Response } from "express";
-import InitialEntity from "../entities/initialEntity";
+import { sequelize } from '../../../database/pg_connection';
 
 class initialController {
-    public static index(req: Request, res: Response) {
-        res.json({ mensagem: 'Show de bola' })
+    public static async index(req: Request, res: Response) {
+
+        try {
+            await sequelize.authenticate();
+            res.json({ mensagem: 'Show de bola' });
+            console.log('Deu Sucesso!');
+        } catch (error) {
+            console.log('Deu erro', error)
+        }
     }
 }
 

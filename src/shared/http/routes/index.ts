@@ -4,6 +4,7 @@ import { Router } from 'express';
 
 const routes = Router();
 
-routes.use('/initial', initialRouter)
+routes.use('/program', initialRouter)
+//routes.use('/program', () => { console.log('filhja') })
 
 export default routes;
